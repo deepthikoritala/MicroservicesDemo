@@ -1,0 +1,32 @@
+﻿{
+  "Routes": [
+    {
+      "UseServiceRegistry": true,
+      "DownstreamPathTemplate": "/Orders/{Anything}",
+      "DownstreamScheme": "https",
+      "ServiceName": "OrdersService", 
+      "UpstreamPathTemplate": "/apigateway/Orders/{Anything}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/Products/{Anything}",
+      "DownstreamScheme": "https",
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 7142
+      //  }
+      //],
+      "ServiceName": "ProductsService",
+      "UpstreamPathTemplate": "/apigateway/Products/{Anything}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}
