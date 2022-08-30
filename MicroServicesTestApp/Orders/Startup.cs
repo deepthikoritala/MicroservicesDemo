@@ -37,7 +37,6 @@ namespace Orders
             services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddDbContext<OrdersContext>(o => o.UseNpgsql(pgSqlConnectionBuilder.ConnectionString));
-            services.AddConsulConfig(Configuration);
 
         }
 

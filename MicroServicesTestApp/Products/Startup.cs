@@ -36,8 +36,6 @@ namespace Products
             services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddDbContext<ProductContext>(o => o.UseNpgsql(pgSqlConnectionBuilder.ConnectionString));
-            services.AddConsulConfig(Configuration);
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

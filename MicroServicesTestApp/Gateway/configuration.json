@@ -9,6 +9,7 @@
       "UpstreamHttpMethod": [ "GET", "PUT", "POST", "DELETE" ]
     },
     {
+      "UseServiceRegistry": true,
       "DownstreamPathTemplate": "/Products/{Anything}",
       "DownstreamScheme": "https",
       //"DownstreamHostAndPorts": [
