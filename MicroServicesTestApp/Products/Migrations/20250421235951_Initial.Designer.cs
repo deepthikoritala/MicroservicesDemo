@@ -8,11 +8,11 @@ using Products.DBContexts;
 
 #nullable disable
 
-namespace Orders.Migrations
+namespace Products.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20220829060325_ProductsMigration")]
-    partial class ProductsMigration
+    [Migration("20250421235951_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

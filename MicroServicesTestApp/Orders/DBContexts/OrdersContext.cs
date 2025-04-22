@@ -1,13 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orders.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Orders.DBContexts
 {
-    public class OrdersContext :DbContext
+    public class OrdersContext : DbContext
     {
         public OrdersContext(DbContextOptions<OrdersContext> options) : base(options)
         {
@@ -23,8 +19,8 @@ namespace Orders.DBContexts
                     Id = 1,
                     Name = "ElectronicOrder",
                     Description = "Electronic Order",
-                    NoOfItems=3,
-                    Total=100000
+                    NoOfItems = 3,
+                    Total = 100000
                 },
                 new Order
                 {

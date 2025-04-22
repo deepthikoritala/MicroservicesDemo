@@ -1,12 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using Consul;
 using Orders.DBContexts;
 using Orders.Repository;
 using Products.Repository;
-using Common;
-using Microsoft.AspNetCore;
 
 namespace Orders
 {
@@ -54,12 +51,17 @@ namespace Orders
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<OrdersContext>();
+                context.Database.Migrate();
+            }
 
             app.UseConsul(Configuration);
         }

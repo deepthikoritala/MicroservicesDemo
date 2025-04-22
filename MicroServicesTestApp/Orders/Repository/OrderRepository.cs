@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Orders.Repository;
 using Orders.DBContexts;
 using Orders.Models;
+using Orders.Repository;
 
 namespace Products.Repository
 {
-    public class OrderRepository: IOrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly OrdersContext _dbContext;
 
@@ -31,7 +31,7 @@ namespace Products.Repository
             return _dbContext.Orders.ToList();
         }
 
-      
+
         public void InsertOrder(Order order)
         {
             _dbContext.Add(order);

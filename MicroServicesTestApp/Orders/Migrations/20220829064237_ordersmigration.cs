@@ -38,8 +38,8 @@ namespace Orders.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Orders");
+            //migrationBuilder.DropTable(
+            //    name: "Orders");
         }
     }
 }

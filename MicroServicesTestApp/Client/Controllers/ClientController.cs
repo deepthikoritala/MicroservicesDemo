@@ -24,7 +24,8 @@ namespace Client.Controllers
             return getOrdersAsync().Result;
         }
 
-        private async Task<List<OrderDTO>> getOrdersAsync() {
+        private async Task<List<OrderDTO>> getOrdersAsync()
+        {
             List<OrderDTO> orders = new List<OrderDTO>();
             using (var client = new HttpClient())
             {
@@ -36,8 +37,7 @@ namespace Client.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     orders = await response.Content.ReadFromJsonAsync<List<OrderDTO>>();
-                    //Console.WriteLine("Id:{0}\tName:{1}", department.DepartmentId, department.DepartmentName);
-                    //Console.WriteLine("No of Employee in Department: {0}", department.Employees.Count);
+                  
                 }
                 else
                 {

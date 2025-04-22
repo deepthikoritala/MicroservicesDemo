@@ -1,14 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Products.DBContexts;
 using Products.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Products.Repository
 {
-    public class ProductRepository: IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly ProductContext _dbContext;
 

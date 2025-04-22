@@ -10,7 +10,7 @@ namespace Products
             BuildWebHost(args).Run();
         }
 
-       public static IWebHost BuildWebHost(string[] args)
+        public static IWebHost BuildWebHost(string[] args)
         {
             var builder = WebHost.CreateDefaultBuilder(args);
 

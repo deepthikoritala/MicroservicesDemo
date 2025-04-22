@@ -1,11 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using Consul;
-using Products.Repository;
-using Common;
-using Microsoft.AspNetCore;
 using Products.DBContexts;
+using Products.Repository;
 
 namespace Products
 {
@@ -53,6 +50,12 @@ namespace Products
             app.UseRouting();
 
             app.UseAuthorization();
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<ProductContext>();
+                context.Database.Migrate();
+            }
 
             app.UseEndpoints(endpoints =>
             {

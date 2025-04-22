@@ -7,7 +7,7 @@ using Products.DBContexts;
 
 #nullable disable
 
-namespace Orders.Migrations
+namespace Products.Migrations
 {
     [DbContext(typeof(ProductContext))]
     partial class ProductContextModelSnapshot : ModelSnapshot
